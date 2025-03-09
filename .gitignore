@@ -8,3 +8,5 @@ __pycache__/
 .env
 .idea/
 .vscode/
+src/static/images
+src/uploads

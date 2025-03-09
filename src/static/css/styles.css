@@ -1,0 +1,24 @@
+button, .btn-download {
+    appearance: auto; /* Firefox default look */
+    -webkit-appearance: auto; /* Safari */
+    -moz-appearance: auto; /* Firefox */
+    background-color: #f0f0f0; /* Firefox default grey */
+    border: 1px solid #a1a1a1; /* Dark grey border */
+    border-radius: 4px; /* Firefox rounded edges */
+    padding: 5px 15px;  /* Firefox's typical padding */
+    cursor: pointer;
+}
+
+button:hover, .btn-download:hover {
+    background-color: #e6e6e6; /* Slight hover change */
+}
+
+.btn-download {
+    background-color: #4CAF50; /* Green version for download */
+    color: white;
+    border: 1px solid #3d8b40; /* Darker green border */
+}
+
+.btn-download:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
