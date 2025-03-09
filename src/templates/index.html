@@ -17,26 +17,27 @@
     <h1>DXF to G-Code Converter</h1>
     <form method="POST" enctype="multipart/form-data">
         <label for="file">Upload your DXF file:</label><br>
-        <input type="file" name="file" accept=".dxf" required><br><br>
+        <input type="file" name="file" accept=".dxf"><br><br>  <!-- No longer required on every submit -->
+
+        <label for="spacing">Give cross hatch spacing (mm):</label><br>
+        <input type="number" name="spacing" min="1" max="1000" value="{{ saved_spacing }}" required><br><br>
+
         <button type="submit">Submit</button>
     </form>
 
     {% if output %}
     <h3>G-Code Output:</h3>
     <form action="/download" method="GET">
-        <input type="hidden" name="content" value="{{ output }}">
         <input type="hidden" name="filename" value="{{ filename }}">
         <button type="submit" class="btn-download">Download G-code</button>
     </form>
+
     <textarea readonly>{{ output }}</textarea>
 
     {% if image_url %}
     <h3>Visualization:</h3>
     <img src="{{ image_url }}" alt="G-Code Visualization">
     {% endif %}
-
-
-
     {% endif %}
 </div>
 </body>

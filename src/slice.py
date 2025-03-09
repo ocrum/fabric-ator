@@ -1,5 +1,5 @@
 import matplotlib
-# matplotlib.use('Agg') # comment this out if you want the cool visualization
+matplotlib.use('Agg') # comment this out if you want the cool visualization
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 import math
