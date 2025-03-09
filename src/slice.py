@@ -7,8 +7,8 @@ from pathlib import Path
 import ezdxf
 
 # Print bed dimensions
-PRINT_BED_X = 200
-PRINT_BED_Y = 200
+PRINT_BED_X = 500
+PRINT_BED_Y = 500
 
 
 def combine_segments_to_polygon(segments, tol=1e-6):
@@ -454,7 +454,7 @@ def slice_dxf(file_path, spacing=10, output_image_path='visualization.png', debu
         raise FileNotFoundError(f"Invalid DXF file: {path}")
 
 
-    polygon = read_dxf_polygon(path)
+    polygon = scale_polygon(read_dxf_polygon(path), 2)
     shape = center_polygon(polygon, PRINT_BED_X, PRINT_BED_Y)
     cmd_arr = generate_perimeter_path(shape)
     cmd_arr.extend(generate_cross_hatching_path(shape, spacing))
@@ -469,6 +469,6 @@ def slice_dxf(file_path, spacing=10, output_image_path='visualization.png', debu
     return "\n".join(gcode)
 
 if __name__ == '__main__':
-    filename = '../data/square.dxf'
+    filename = '../data/star.dxf'
     output = slice_dxf(filename, debug=True)
     print(output)
